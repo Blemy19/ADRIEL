@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#058fe8">
+  <meta name="description" content="¡Adriel cumple 3 años! Te invitamos a una fiesta llena de diversión el 18 de octubre.">
+  <title>¡Adriel cumple 3! | Invitación</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE4IiBmaWxsPSIjMDI4ZmU1Ii8+PHBhdGggZD0iTTEwIDI0QzEwIDE3IDE2IDE2IDI0IDE3YzcgMSA5IDYgOSAxMCAxLTUgNS05IDEyLTEwIDEwLTEgMTMgNCAxMSAxNC0xIDgtNSAxMy0xNCAxMy04IDAtMTEtNS0xMi0xMy0xIDgtNSAxMy0xMyAxM1M5IDM3IDEwIDI0WiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZmY3ZjE4IiBzdHJva2Utd2lkdGg9IjciLz48Y2lyY2xlIGN4PSIyMiIgY3k9IjI5IiByPSI0IiBmaWxsPSIjMDc2MWE1Ii8+PGNpcmNsZSBjeD0iNDQiIGN5PSIyOSIgcj0iNCIgZmlsbD0iIzA3NjFhNSIvPgo8L3N2Zz4K" type="image/svg+xml">
+  <!-- Respaldo integrado: incluso si solo se abre este HTML, tendra diseño. -->
+  <style>
+/*
+  INVITACIÓN INTERACTIVA DE ADRIEL
+  Diseño original inspirado en fiestas infantiles educativas:
+  colores vivos, juguetes de construcción, nubes y diversión.
+  No necesita librerías ni conexión para verse y funcionar.
+*/
+:root {
+  --azul: #0863c1;
+  --azul-vivo: #058fe8;
+  --azul-cielo: #28b6fb;
+  --azul-profundo: #093f9c;
+  --naranja: #ff771a;
+  --naranja-fuerte: #f45312;
+  --amarillo: #ffdc34;
+  --crema: #fffaf1;
+  --blanco: #fff;
+  --tinta: #18335b;
+  --sombra: 0 18px 0 rgba(3, 59, 126, .13);
+  --fuente: "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--fuente); background: #1079d3; color: var(--tinta); }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 4px solid var(--amarillo); outline-offset: 5px; }
+img { display: block; max-width: 100%; }
+.hidden { display: none !important; }
+.page { min-height: 100vh; overflow: hidden; background: var(--crema); }
+.wrap { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+.skip-link { position: absolute; z-index: 100; left: 12px; top: -100px; padding: 12px; background: white; }
+.skip-link:focus { top: 12px; }
+#confeti { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 80; pointer-events: none; }
+.topbar { position: absolute; z-index: 10; top: 0; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: space-between; padding-top: 24px; gap: 16px; color: white; }
+.brand { display: inline-flex; gap: 12px; align-items: center; text-decoration: none; font-size: .84rem; font-weight: 900; letter-spacing: .075em; line-height: 1.1; }
+.brand strong { display: block; color: var(--amarillo); font-size: 1.23em; }
+.brand-mark { width: 48px; height: 48px; display: grid; place-items: center; background: var(--naranja); border: 3px solid white; border-radius: 50%; box-shadow: 0 6px 0 rgba(0, 65, 153, .2); color: white; font-size: 26px; }
+.topbar-tag { border: 2px solid rgba(255, 255, 255, .7); border-radius: 999px; padding: 10px 17px; font-size: .74rem; font-weight: 900; letter-spacing: .1em; white-space: nowrap; }
+.topbar-tag span { color: var(--amarillo); }
+.hero { position: relative; overflow: hidden; isolation: isolate; min-height: 755px; background: radial-gradient(circle at 70% 18%, #7addff 0, #40c5ff 26%, #13a8f6 51%, #0878d8 100%); color: white; }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .15; background-image: radial-gradient(white 2px, transparent 3px); background-size: 58px 58px; transform: rotate(-12deg) scale(1.3); }
+.hero::after { content: ""; position: absolute; z-index: 0; bottom: -84px; left: -4%; width: 108%; height: 157px; border-radius: 50% 50% 0 0; background: #fff7e8; }
+.hero-content { position: relative; z-index: 3; min-height: 700px; display: grid; grid-template-columns: 54% 46%; align-items: center; padding-top: 80px; padding-bottom: 75px; }
+.hero-copy { position: relative; z-index: 4; padding: 57px 0 17px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 23px; font-size: .78rem; font-weight: 900; letter-spacing: .16em; color: #eefaff; }
+.eyebrow span { color: var(--amarillo); font-size: 1.16rem; }
+.speech { display: table; position: relative; transform: rotate(-3deg); background: white; color: var(--naranja-fuerte); border: 4px solid var(--azul-profundo); border-radius: 18px; padding: 8px 20px; box-shadow: 5px 7px 0 var(--amarillo); font-weight: 1000; font-size: clamp(1.1rem, 2.2vw, 1.65rem); letter-spacing: .02em; }
+.speech::after { content: ""; position: absolute; left: 32px; bottom: -14px; width: 20px; height: 20px; background: white; border-right: 4px solid var(--azul-profundo); border-bottom: 4px solid var(--azul-profundo); transform: rotate(45deg); }
+.hero h1 { max-width: 750px; margin: 30px 0 21px; text-transform: uppercase; line-height: .99; letter-spacing: -.054em; font-size: clamp(3.9rem, 7.3vw, 7.6rem); font-weight: 1000; text-shadow: 4px 5px 0 #0760ba, 0 10px 25px #0b79b470; }
+.hero h1 em { display: block; margin-top: 5px; color: var(--amarillo); font-style: normal; letter-spacing: -.065em; text-shadow: 4px 5px 0 #ec6f0f, 0 10px 20px #07569e4d; }
+.hero-description { max-width: 505px; font-weight: 700; font-size: clamp(1.02rem, 1.65vw, 1.22rem); line-height: 1.65; text-wrap: pretty; margin: 0 0 28px; color: #f5fcff; }
+.button { min-height: 55px; display: inline-flex; align-items: center; justify-content: center; gap: 15px; padding: 14px 24px; font-family: var(--fuente); font-weight: 1000; font-size: .91rem; letter-spacing: .02em; text-align: center; text-decoration: none; border: 0; border-radius: 16px; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.button:not([data-pending="true"]):hover { transform: translateY(-3px); }
+.button:active { transform: translateY(1px); }
+.button-orange { color: white; background: linear-gradient(180deg, #ff9f2c, #fa5b15); border: 3px solid white; box-shadow: 0 8px 0 #c94c16, 0 13px 14px #0664a344; }
+.hero-button { min-height: 68px; }
+.hero-button span { font-size: 1.6rem; line-height: .6; }
+.hero-date { display: flex; align-items: center; gap: 11px; margin-top: 29px; font-size: .83rem; letter-spacing: .095em; font-weight: 900; }
+.hero-date > span { color: var(--amarillo); font-size: 1.5rem; }
+.hero-art { position: relative; height: 580px; align-self: center; z-index: 2; }
+.art-ring { position: absolute; border-radius: 50%; pointer-events: none; }
+.ring-one { width: min(540px, 100%); aspect-ratio: 1; top: 52px; right: 5px; background: linear-gradient(150deg, #ffe84c, #ffad25); border: 16px solid rgba(255,255,255,.7); box-shadow: 0 17px 0 rgba(0,80,160,.25), inset 0 0 0 8px rgba(255,255,255,.2); transform: rotate(7deg); }
+.ring-two { width: 355px; height: 355px; top: 146px; right: 74px; border: 6px dashed rgba(255,255,255,.75); transform: rotate(12deg); }
+.art-mascot { position: absolute; z-index: 2; height: 608px; width: 489px; max-width: 110%; right: -24px; top: -26px; animation: floaty 5s ease-in-out infinite; transform-origin: center bottom; }
+.art-mascot img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 8px rgba(2, 65, 140, .17)); }
+.number-sticker { position: absolute; z-index: 4; right: -11px; bottom: 16px; width: 168px; height: 160px; display: flex; flex-direction: column; justify-content: center; align-items: center; transform: rotate(12deg); background: var(--naranja); color: white; border: 9px solid white; border-radius: 41% 58% 47% 55%; box-shadow: 0 12px 0 #0c58ac; text-shadow: 3px 3px 0 #d55412; }
+.number-sticker > span { font-weight: 1000; font-size: 7rem; line-height: .85; }
+.number-sticker small { font-size: 1.12rem; font-weight: 1000; letter-spacing: .06em; }
+.little-sparkle { position: absolute; z-index: 5; color: white; right: 5px; top: 18px; font-size: 68px; text-shadow: 3px 4px 0 #2c88db; animation: twinkle 3s ease-in-out infinite; }
+.balloons { position: absolute; z-index: 1; left: 4px; top: 32px; transform: rotate(-12deg); }
+.balloon { position: absolute; width: 90px; height: 110px; border-radius: 51% 49% 48% 48%; box-shadow: inset -13px -7px 0 rgba(0,0,0,.08), inset 11px 5px 0 rgba(255,255,255,.16); }
+.balloon::after { content: ""; position: absolute; bottom: -87px; left: 50%; height: 90px; border-left: 2px solid rgba(255,255,255,.7); transform: translateX(-50%); }
+.balloon-yellow { background: #ffe23e; left: 25px; top: 0; }
+.balloon-orange { background: #fb6d1d; left: 95px; top: 17px; }
+.balloon-blue { background: #0c65d7; left: -29px; top: 70px; }
+.sun { position: absolute; width: 120px; height: 120px; border-radius: 50%; background: #fff4a1; right: 16%; top: 85px; filter: blur(2px); opacity: .65; }
+.cloud { position: absolute; width: 270px; height: 80px; border-radius: 100px; background: rgba(255,255,255,.65); opacity: .65; z-index: 0; }
+.cloud::before, .cloud::after { content: ""; position: absolute; border-radius: 50%; background: inherit; }
+.cloud::before { width: 116px; height: 115px; left: 41px; bottom: 14px; }
+.cloud::after { width: 155px; height: 135px; left: 99px; bottom: 3px; }
+.cloud-one { left: -140px; top: 210px; transform: scale(.7); }
+.cloud-two { right: -170px; top: 200px; transform: scale(1.1); }
+.bunting { position: absolute; left: 36%; right: 0; top: -14px; display: flex; justify-content: space-around; height: 80px; border-top: 5px solid rgba(255,255,255,.75); transform: rotate(-4deg); z-index: 2; }
+.bunting span { width: 49px; height: 75px; background: var(--naranja); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.bunting span:nth-child(3n + 1) { background: var(--amarillo); }
+.bunting span:nth-child(3n + 2) { background: #1467d6; }
+.decor { position: absolute; z-index: 2; }
+.decor-star { color: var(--amarillo); text-shadow: 2px 2px 0 #f48a1b; }
+.s1 { top: 170px; left: 46%; font-size: 60px; transform: rotate(-20deg); }
+.s2 { right: 6%; top: 225px; font-size: 55px; }
+.s3 { left: 3%; bottom: 168px; font-size: 55px; color: white; }
+.decor-dot { width: 20px; height: 20px; border: 5px solid #fff; border-radius: 50%; }
+.s4 { right: 45%; top: 162px; }
+.hero-bottom { position: absolute; z-index: 2; inset-inline: 0; bottom: 12px; height: 140px; pointer-events: none; }
+.hill { position: absolute; bottom: -50px; width: 40%; height: 120px; background: #fff1d0; border-radius: 60% 80% 0 0; }
+.hill-one { left: -8%; transform: rotate(-6deg); }
+.hill-two { right: -9%; background: #ffe7b1; transform: rotate(8deg); }
+.truck { position: absolute; width: 205px; left: 10%; bottom: -2px; transform: rotate(-5deg); filter: drop-shadow(0 5px 3px #065aa552); }
+.traffic-cone { position: absolute; right: 15%; bottom: 7px; width: 43px; height: 58px; border-bottom: 13px solid #f86716; border-left: 18px solid transparent; border-right: 18px solid transparent; filter: drop-shadow(0 3px 0 #fff); }
+.traffic-cone::before { content: ""; position: absolute; left: -10px; top: 20px; width: 21px; height: 12px; background: white; transform: skew(-8deg); }
+
+/* Sección central */
+.adventure-section { position: relative; background: #fff7e8; padding: 105px 0 28px; }
+.adventure-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .38; background-image: radial-gradient(#f9ca86 1.5px, transparent 2px); background-size: 35px 35px; }
+.adventure-section > .wrap { position: relative; z-index: 1; }
+.section-heading { text-align: center; max-width: 800px; margin: 0 auto 48px; }
+.section-kicker { color: var(--naranja-fuerte); font-size: .85rem; font-weight: 1000; letter-spacing: .19em; }
+.section-heading h2 { margin: 13px 0 12px; color: var(--azul-profundo); font-size: clamp(2.3rem, 5vw, 4.4rem); line-height: 1.1; letter-spacing: -.05em; font-weight: 1000; }
+.section-heading h2 span { color: var(--naranja-fuerte); }
+.section-heading p { margin: 0; font-size: 1.12rem; font-weight: 700; color: #576580; }
+.details-grid { display: grid; grid-template-columns: .89fr 1.31fr; gap: 25px; align-items: stretch; }
+.date-card, .details-card { border-radius: 32px; box-shadow: var(--sombra); }
+.date-card { position: relative; overflow: hidden; min-height: 470px; padding: 27px 32px 29px; border: 5px solid #f7b71a; color: white; background: linear-gradient(145deg, #ff9e16, #ff6d1a 58%, #ee4b11); text-align: center; }
+.date-card::before { content: ""; position: absolute; width: 400px; height: 400px; border-radius: 50%; border: 29px solid rgba(255,255,255,.13); left: 50%; top: 38px; transform: translateX(-50%); }
+.date-card::after { content: "✴"; position: absolute; bottom: 95px; right: 26px; color: #ffe678; font-size: 50px; }
+.card-topline { position: relative; z-index: 1; display: flex; justify-content: space-between; font-size: .8rem; font-weight: 1000; letter-spacing: .09em; }
+.date-kicker { position: relative; z-index: 1; display: inline-block; margin-top: 45px; background: white; color: #eb5611; padding: 8px 17px; border-radius: 40px; transform: rotate(-4deg); font-size: .85rem; font-weight: 1000; }
+.giant-date { position: relative; z-index: 1; font-size: clamp(8rem, 17vw, 14rem); letter-spacing: -.11em; line-height: 1.08; font-weight: 1000; text-shadow: 6px 9px 0 #d64e13; padding-right: .15em; }
+.date-month { position: relative; z-index: 1; margin: 0; font-size: clamp(1.5rem, 3vw, 2.45rem); font-weight: 1000; letter-spacing: .01em; }
+.date-month span { color: #ffe25b; }
+.date-footer { position: relative; z-index: 1; display: flex; margin: 29px auto 0; align-items: center; justify-content: center; gap: 9px; padding: 11px 14px; background: #fff7e6; color: #d75717; border-radius: 50px; max-width: 340px; font-size: .86rem; font-weight: 1000; }
+.details-card { position: relative; padding: 39px 42px; background: white; border: 4px dashed #d2e2f8; }
+.card-stamp { position: absolute; right: 29px; top: 30px; display: grid; place-items: center; background: #fff2bd; width: 53px; height: 53px; transform: rotate(13deg); border-radius: 12px; font-size: 30px; }
+.details-card h3 { max-width: 380px; margin: 0 0 25px; font-size: clamp(1.65rem, 3vw, 2.45rem); line-height: 1.15; color: var(--azul-profundo); font-weight: 1000; letter-spacing: -.045em; }
+.detail-line { display: flex; gap: 17px; align-items: center; padding: 17px 0; border-bottom: 2px dashed #d7e2ef; }
+.detail-icon { width: 58px; height: 58px; flex: 0 0 58px; display: grid; place-items: center; border-radius: 16px; transform: rotate(-5deg); }
+.detail-icon svg { width: 29px; height: 29px; }
+.icon-clock { background: #d7f3ff; color: #057dd4; }
+.icon-pin { background: #ffe4d2; color: #fc6a1c; }
+.detail-text { min-width: 0; }
+.detail-text > span { display: block; font-weight: 1000; font-size: .75rem; color: #ee671b; letter-spacing: .11em; margin-bottom: 7px; }
+.detail-text strong { display: block; font-size: 1.19rem; color: #173a77; overflow-wrap: anywhere; }
+.map-box { position: relative; margin-top: 24px; padding: 17px; border-radius: 20px; overflow: hidden; border: 2px solid #d3eaf6; background: repeating-linear-gradient(35deg, #e8f9f6 0 20px, #edf7fe 20px 37px); display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 12px; }
+.map-line { position: absolute; right: -20px; top: 10px; width: 180px; height: 95px; border-top: 8px dashed #ffd36c; transform: rotate(-25deg); opacity: .65; pointer-events: none; }
+.map-marker { position: relative; z-index: 1; width: 48px; height: 48px; display: grid; place-items: center; font-size: 30px; background: white; border-radius: 50%; box-shadow: 0 3px 0 #c0dfeb; }
+.map-description { position: relative; z-index: 1; }
+.map-description strong, .map-description span { display: block; }
+.map-description strong { font-size: .96rem; color: var(--azul-profundo); }
+.map-description span { margin-top: 2px; font-size: .83rem; color: #526b7a; line-height: 1.4; }
+.map-button { grid-column: 1/-1; position: relative; z-index: 1; width: 100%; margin-top: 3px; }
+.button-blue { background: #0466cb; color: white; box-shadow: 0 5px 0 #0b4695; }
+.button-blue[data-pending="true"] { background: #7299c0; cursor: help; box-shadow: 0 5px 0 #567ba5; }
+.vehicle-road { position: relative; height: 150px; margin-top: 30px; }
+.vehicle-road::before { content: ""; position: absolute; left: -80px; right: -80px; top: 98px; border-top: 6px dashed #eab975; }
+.vehicle-road img { position: absolute; width: min(300px, 55%); height: 185px; object-fit: contain; left: 9%; top: -10px; filter: drop-shadow(0 10px 5px #f5d5a660); }
+
+/* Invitación final */
+.end-section { position: relative; background: linear-gradient(140deg, #065dc3, #034293); color: white; padding: 72px 0 80px; overflow: hidden; }
+.end-section::before, .end-section::after { content: ""; position: absolute; width: 260px; height: 260px; border: 26px solid rgba(255,255,255,.08); border-radius: 50%; }
+.end-section::before { left: -100px; top: -90px; }
+.end-section::after { right: -120px; bottom: -80px; }
+.end-confetti { position: absolute; right: 16%; top: 20px; font-size: 64px; color: var(--amarillo); animation: twinkle 2.5s infinite; }
+.end-card { position: relative; z-index: 1; text-align: center; }
+.end-stars { display: block; color: #ffdd34; font-size: 1.9rem; }
+.end-card h2 { max-width: 850px; margin: 20px auto; font-size: clamp(2.5rem, 5.7vw, 5.3rem); line-height: 1.07; letter-spacing: -.06em; font-weight: 1000; }
+.end-card h2 span { color: var(--amarillo); }
+.end-card > p { max-width: 635px; margin: 0 auto 34px; color: #dbeefd; font-size: 1.18rem; line-height: 1.6; font-weight: 700; }
+.end-buttons { display: flex; justify-content: center; gap: 13px; align-items: center; flex-wrap: wrap; }
+.button-yellow { color: #15418b; background: var(--amarillo); box-shadow: 0 6px 0 #e4a324; }
+.button-outline { color: white; border: 2px solid rgba(255,255,255,.8); background: rgba(255,255,255,.08); }
+.button-white { color: #147947; background: white; box-shadow: 0 6px 0 #bcd0e2; }
+.end-message { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 53px; font-size: .85rem; color: #c7e8ff; }
+.end-message strong { color: #ffdf45; }
+.end-message > span:last-child { font-size: 1.8rem; color: #ff9b61; }
+.footer { background: #fff7e8; color: #3973a6; display: flex; justify-content: space-between; padding-top: 28px; padding-bottom: 28px; gap: 12px; font-size: .73rem; letter-spacing: .08em; font-weight: 1000; }
+.footer span span { color: #f26b1c; }
+.toast { position: fixed; z-index: 100; bottom: 28px; left: 50%; max-width: min(90vw, 520px); width: max-content; padding: 15px 23px; border-radius: 14px; background: #193d84; color: white; font-size: .95rem; font-weight: 800; text-align: center; box-shadow: 0 10px 38px #08214455; transform: translate(-50%, 130px); opacity: 0; transition: transform .25s ease, opacity .25s ease; pointer-events: none; }
+.toast.visible { transform: translate(-50%, 0); opacity: 1; }
+@keyframes floaty { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
+@keyframes twinkle { 0%, 100% { transform: scale(1) rotate(-12deg); } 50% { transform: scale(1.16) rotate(8deg); } }
+
+@media (max-width: 1100px) {
+  .hero-content { grid-template-columns: 54% 46%; }
+  .hero h1 { font-size: clamp(3.7rem, 7.3vw, 6.2rem); }
+  .hero-art { height: 500px; }
+  .art-mascot { height: 540px; width: 430px; right: -25px; top: -20px; }
+  .ring-one { top: 55px; }
+  .ring-two { width: 270px; height: 270px; right: 55px; }
+  .number-sticker { width: 135px; height: 140px; right: -18px; bottom: -5px; }
+  .number-sticker > span { font-size: 5.5rem; }
+  .date-card { min-height: 440px; }
+}
+@media (max-width: 800px) {
+  .wrap { width: min(640px, calc(100% - 38px)); }
+  .topbar { padding-top: 16px; }
+  .topbar-tag { font-size: .66rem; padding: 8px 11px; }
+  .brand-mark { width: 40px; height: 40px; }
+  .brand { font-size: .66rem; }
+  .hero { min-height: auto; }
+  .hero-content { display: flex; flex-direction: column; min-height: 0; padding: 105px 0 93px; text-align: center; }
+  .hero-copy { padding: 10px 0 0; }
+  .eyebrow { margin-bottom: 23px; font-size: .74rem; }
+  .speech { margin-inline: auto; }
+  .hero h1 { margin: 25px auto 15px; max-width: 600px; font-size: clamp(3.2rem, 10.5vw, 6.3rem); }
+  .hero-description { margin-inline: auto; max-width: 560px; }
+  .hero-date { justify-content: center; margin-top: 23px; }
+  .hero-art { width: min(480px, 100%); height: 445px; margin: 18px auto -15px; }
+  .ring-one { top: 33px; left: 50%; right: auto; transform: translateX(-50%) rotate(7deg); width: 405px; max-width: 92%; border-width: 12px; }
+  .ring-two { left: 50%; right: auto; transform: translateX(-50%) rotate(12deg); top: 87px; height: 250px; width: 250px; }
+  .art-mascot { height: 486px; width: 392px; max-width: 100%; left: 50%; right: auto; top: -26px; margin-left: -196px; }
+  .number-sticker { width: 121px; height: 117px; right: -5px; bottom: 0; border-width: 6px; }
+  .number-sticker > span { font-size: 5rem; }
+  .number-sticker small { font-size: .86rem; }
+  .balloons { left: 5px; top: 22px; transform: scale(.7) rotate(-10deg); }
+  .little-sparkle { right: 5px; }
+  .bunting { left: 20%; }
+  .decor.s1 { left: 8%; top: 250px; }
+  .decor.s2 { right: 6%; top: 320px; }
+  .truck { width: 163px; left: -16px; bottom: -13px; }
+  .traffic-cone { right: 8%; bottom: -4px; }
+  .adventure-section { padding-top: 67px; }
+  .details-grid { grid-template-columns: 1fr; gap: 22px; }
+  .date-card { min-height: 400px; }
+  .date-kicker { margin-top: 25px; }
+  .giant-date { font-size: 10rem; }
+  .date-footer { margin-top: 19px; }
+  .details-card { padding: 35px 28px; }
+  .vehicle-road { height: 130px; }
+  .vehicle-road img { left: 1%; }
+  .footer { flex-direction: column; text-align: center; align-items: center; }
+}
+@media (max-width: 480px) {
+  .wrap { width: calc(100% - 30px); }
+  .brand { gap: 7px; font-size: .56rem; }
+  .brand-mark { width: 34px; height: 34px; font-size: 22px; border-width: 2px; }
+  .topbar-tag { font-size: .53rem; letter-spacing: .04em; padding: 8px 9px; }
+  .hero-content { padding-top: 93px; padding-bottom: 90px; }
+  .eyebrow { font-size: .55rem; gap: 7px; letter-spacing: .1em; }
+  .speech { font-size: 1.05rem; padding: 8px 17px; }
+  .hero h1 { font-size: clamp(3.1rem, 12vw, 4.6rem); letter-spacing: -.075em; }
+  .hero-description { font-size: .98rem; line-height: 1.55; padding-inline: 8px; }
+  .hero-button { font-size: .79rem; min-height: 61px; padding-inline: 16px; }
+  .hero-date { font-size: .68rem; gap: 6px; }
+  .hero-art { margin-top: 23px; height: 360px; width: 100%; }
+  .ring-one { width: min(330px, 94%); height: min(330px, 90vw); top: 25px; }
+  .ring-two { width: 207px; height: 207px; top: 90px; }
+  .art-mascot { width: 334px; height: 404px; margin-left: -167px; top: -17px; }
+  .number-sticker { right: -3px; bottom: -2px; width: 101px; height: 106px; border-width: 6px; }
+  .number-sticker > span { font-size: 4.25rem; }
+  .number-sticker small { font-size: .75rem; }
+  .little-sparkle { font-size: 48px; }
+  .balloons { left: -19px; top: 5px; transform: scale(.55) rotate(-12deg); }
+  .hero-bottom { height: 102px; }
+  .truck { width: 127px; }
+  .traffic-cone { transform: scale(.8); }
+  .section-heading { margin-bottom: 31px; }
+  .section-kicker { font-size: .73rem; }
+  .section-heading h2 { font-size: clamp(2.4rem, 9vw, 3.3rem); }
+  .section-heading p { font-size: 1rem; }
+  .date-card { min-height: 372px; padding: 20px; }
+  .giant-date { font-size: 9rem; }
+  .date-month { font-size: 1.7rem; }
+  .date-footer { font-size: .78rem; }
+  .details-card { padding: 28px 20px; }
+  .details-card h3 { font-size: 1.8rem; padding-right: 39px; }
+  .card-stamp { right: 15px; top: 21px; font-size: 24px; width: 42px; height: 42px; }
+  .detail-icon { width: 52px; height: 52px; flex-basis: 52px; }
+  .detail-text strong { font-size: 1.05rem; }
+  .map-button { font-size: .75rem; padding-inline: 8px; }
+  .vehicle-road { height: 100px; }
+  .vehicle-road img { width: 230px; height: 140px; }
+  .vehicle-road::before { top: 72px; }
+  .end-section { padding: 57px 0 66px; }
+  .end-card h2 { font-size: 2.75rem; }
+  .end-card > p { font-size: 1rem; }
+  .end-buttons { flex-direction: column; align-items: stretch; }
+  .end-buttons .button { width: 100%; }
+  .end-message { margin-top: 34px; font-size: .77rem; }
+  .footer { font-size: .66rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+  
+/* --- Reproductor musical y bienvenida --- */
+.music-control {
+  position: fixed; z-index: 95; right: 18px; bottom: 18px;
+  display: inline-flex; align-items: center; gap: 9px;
+  max-width: calc(100vw - 36px); min-height: 52px; padding: 12px 18px;
+  border: 3px solid #fff; border-radius: 40px;
+  background: linear-gradient(125deg, #ff8b21, #f45a12);
+  color: white; box-shadow: 0 7px 0 #bd480c, 0 13px 27px #092d6777;
+  font: 900 .85rem/1.25 "Trebuchet MS", system-ui, sans-serif;
+  cursor: pointer; transition: transform .2s ease;
+}
+.music-control:hover { transform: translateY(-2px); }
+.music-control:focus-visible, .music-start:focus-visible {outline: 4px solid #ffde41; outline-offset: 4px;}
+.music-control .music-icon {font-size: 1.22rem;}
+.music-control.is-playing .music-icon {animation: musicBob 1.3s ease-in-out infinite;}
+@keyframes musicBob {0%,100% {transform:rotate(-13deg) scale(1)} 50% {transform:rotate(10deg) scale(1.15)}}
+.music-welcome[hidden] {display:none !important;}
+.music-welcome {
+  position: fixed; z-index: 105; inset: 0; display: grid; place-items: center;
+  padding: 18px; overflow-y: auto;
+  background: radial-gradient(circle at 50% 15%, #12b8ffef, #0053bded 75%);
+  backdrop-filter: blur(9px); -webkit-backdrop-filter:blur(9px);
+}
+.music-welcome::before {
+  content: "✦       ★         ✦        ★      ✦      ★";
+  position: absolute; top: 10%; left: 0; right: 0; text-align: center;
+  font-size: clamp(25px,6vw,65px); color: #ffda39; letter-spacing: .2em;
+  opacity: .6; pointer-events:none;
+}
+.music-welcome-card {
+  position: relative; width: min(440px, 100%); padding: 30px 25px 31px;
+  text-align: center; border: 6px solid #fff; border-radius: 37px;
+  background: #fffaf1; color: #163c84;
+  box-shadow: 0 16px 0 #ffad18, 0 29px 55px #001e6070;
+  animation: musicEnter .48s ease-out both;
+}
+.music-welcome-card::before {content: '🎈'; position:absolute;top:-37px;left:7px;font-size:54px;transform:rotate(-12deg);}
+.music-welcome-card::after {content: '⭐'; position:absolute;top:-28px;right:4px;font-size:53px;transform:rotate(12deg);}
+.music-disc {width: 108px;height: 108px;display:grid;place-items:center;margin:0 auto 16px;
+  border: 8px solid white; border-radius: 50%;background:#ffdb32;font-size:53px;
+  box-shadow:0 0 0 6px #ff8515,0 7px 0 #d65b15; transform:rotate(-9deg);}
+.music-tag {display:inline-block;margin:0 0 13px;color:#ec6219;font-size:.76rem;font-weight:1000;letter-spacing:.15em;text-transform:uppercase;}
+.music-welcome h2 {margin:0 0 12px; font-size:clamp(1.85rem,5.5vw,2.75rem);letter-spacing:-.05em;line-height:1.13;}
+.music-welcome h2 strong {color:#f3671b;}
+.music-welcome p {line-height:1.55;font-size:1.02rem; font-weight:700;margin:0 0 19px;}
+.music-start {display:block;width:100%; min-height:63px; padding:13px 18px;
+  border:3px solid white;border-radius:17px;background:linear-gradient(#ff9b22,#fa5b18);
+  color:#fff;font:1000 1rem/1.3 "Trebuchet MS",system-ui,sans-serif;
+  cursor:pointer;box-shadow:0 6px 0 #be4915;transition:transform .2s;}
+.music-start:hover {transform:translateY(-2px);}
+.music-small {display:block;color:#5f7191;font-size:.75rem;line-height:1.45;margin-top:9px;}
+@keyframes musicEnter {from {opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:420px){.music-welcome-card {padding:27px 18px 24px;border-radius:28px}.music-welcome h2 {font-size:1.9rem}.music-control {right:10px;bottom:10px;min-height:48px;font-size:.77rem}}
+@media(prefers-reduced-motion:reduce){.music-control .music-icon{animation:none!important}.music-welcome-card{animation:none}}
+
+  </style>
+  <!-- Opcional: estilos editables externos, anulan el respaldo de arriba. -->
+  <link rel="stylesheet" href="estilos.css">
+  <!-- Configuracion de respaldo para abrir SOLO index.html.
+       Si la carpeta incluye config.js, se usaran los datos de ese archivo. -->
+  <script>
+    window.INVITACION = {
+      nombre: 'Adriel',
+      edad: 3,
+      dia: 18,
+      mes: 'octubre',
+      anio: 2026,
+      hora: '3:00 p. m.',
+      lugar: 'Ubicación del cumpleaños (ver en Google Maps)',
+      enlaceGoogleMaps: 'https://maps.app.goo.gl/AHo4dZ6EC1FkhWir9?g_st=aw',
+      whatsappConfirmacion: '',
+      mensaje: '¡Acompáñanos a celebrar una aventura llena de juegos y diversión!'
+    };
+  </script>
+  <script src="config.js" defer></script>
+  <!-- JavaScript editable; tambien hay un respaldo integrado abajo. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#detalles">Ir a los detalles de la fiesta</a>
+  <canvas id="confeti" aria-hidden="true"></canvas>
+
+
+  <!-- Canción de la Excavadora de Blippi, incluida en el proyecto. -->
+  <audio id="musica-adriel" preload="auto" loop playsinline>
+    <source src="assets/cancion-excavadora-blippi.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musica-control" class="music-control" type="button" aria-label="Reproducir música" aria-pressed="false">
+    <span class="music-icon" aria-hidden="true">🎵</span><span id="musica-control-text">ACTIVAR MÚSICA</span>
+  </button>
+  <div id="musica-bienvenida" class="music-welcome" role="dialog" aria-modal="true" aria-labelledby="musica-titulo" hidden>
+    <div class="music-welcome-card">
+      <div class="music-disc" aria-hidden="true">🚜</div>
+      <span class="music-tag">¡UNA INVITACIÓN CON RITMO!</span>
+      <h2 id="musica-titulo">¡La aventura de <strong>Adriel</strong> comienza!</h2>
+      <p>¡Cumple <strong>3 añitos</strong>! 🎉 Ponte a bailar con la canción de la excavadora y descubre su fiesta.</p>
+      <button class="music-start" id="musica-comenzar" type="button">ABRIR INVITACIÓN</button>
+      <small class="music-small">La música se puede pausar o activar cuando quieras.</small>
+    </div>
+  </div>
+
+  <div class="page">
+    <header class="topbar wrap">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio de la invitación">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>LA GRAN AVENTURA <strong>DE ADRIEL</strong></span>
+      </a>
+      <span class="topbar-tag">INVITACIÓN ESPECIAL <span aria-hidden="true">✦</span></span>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="titulo-principal">
+        <div class="cloud cloud-one" aria-hidden="true"></div>
+        <div class="cloud cloud-two" aria-hidden="true"></div>
+        <div class="sun" aria-hidden="true"></div>
+        <div class="bunting" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span class="decor decor-star s1" aria-hidden="true">★</span>
+        <span class="decor decor-star s2" aria-hidden="true">★</span>
+        <span class="decor decor-star s3" aria-hidden="true">✦</span>
+        <span class="decor decor-dot s4" aria-hidden="true"></span>
+        <div class="wrap hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow"><span aria-hidden="true">⚡</span> PREPÁRATE PARA LA DIVERSIÓN <span aria-hidden="true">⚡</span></p>
+            <div class="speech">¡HEY, HOLA! <span aria-hidden="true">👋</span></div>
+            <h1 id="titulo-principal">¡<span id="nombre-hero">Adriel</span> cumple <em><span id="edad-hero">3</span> añitos!</em></h1>
+            <p class="hero-description">¡Una fiesta llena de colores, juegos y sorpresas está por comenzar! Y tú eres parte de esta gran aventura.</p>
+            <a class="button button-orange hero-button" href="#detalles">¡DESCUBRE LA INVITACIÓN! <span aria-hidden="true">↘</span></a>
+            <div class="hero-date"><span aria-hidden="true">✳</span><strong>DOMINGO <span id="dia-hero">18</span> DE <span id="mes-hero">OCTUBRE</span></strong><span aria-hidden="true">✳</span></div>
+          </div>
+          <div class="hero-art" aria-label="Un animador sonriente, globos y una excavadora de juguete">
+            <div class="art-ring ring-one"></div>
+            <div class="art-ring ring-two"></div>
+            <div class="balloons" aria-hidden="true">
+              <div class="balloon balloon-yellow"></div>
+              <div class="balloon balloon-orange"></div>
+              <div class="balloon balloon-blue"></div>
+            </div>
+            <div class="art-mascot"><img src="assets/personaje.svg" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NDAgNjcwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+Cjx0aXRsZSBpZD0idGl0bGUiPkFuaW1hZG9yIGRlIGZpZXN0YSBzb25yaWVudGUgY29uIGxlbnRlcyBuYXJhbmphczwvdGl0bGU+CjxkZXNjIGlkPSJkZXNjIj5QZXJzb25hamUgb3JpZ2luYWwgZGUgY2FyaWNhdHVyYSBjb24gZ29ycmEgYXp1bCB5IG5hcmFuamEsIGNhbWlzYSBhenVsIHkgdGlyYW50ZXMgbmFyYW5qYXMsIHNhbHVkYW5kby48L2Rlc2M+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InNoaXJ0IiB4MT0iMCIgeDI9IjEiIHkxPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzYxZDZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA4NzZkYyIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iY2FwIiB4MT0iMCIgeDI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmFjMjMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZjY0MTciLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImZhY2UiIHgxPSIuMSIgeDI9Ii44IiB5MT0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmUwYWEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmYmIyNzAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhbnRzIiB4MT0iMCIgeDI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiM1MzZmOTEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyZTQ4NmMiLz48L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJzaGFkb3ciIHg9Ii0uNCIgeT0iLS40IiB3aWR0aD0iMS44IiBoZWlnaHQ9IjEuOCI+PGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjkiIHN0ZERldmlhdGlvbj0iMTEiIGZsb29kLWNvbG9yPSIjMDc1OTlmIiBmbG9vZC1vcGFjaXR5PSIuMjIiLz48L2ZpbHRlcj4KPC9kZWZzPgo8ZWxsaXBzZSBjeD0iMjc5IiBjeT0iNjM5IiByeD0iMTYzIiByeT0iMTciIGZpbGw9IiMwNTVmOWEiIG9wYWNpdHk9Ii4xOCIvPgo8IS0tIGhhbmQgd2F2aW5nIG9uIHZpZXdlcidzIGxlZnQgLS0+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KPHBhdGggZD0iTTE4MSA0MjBRMTE2IDQyNiA4NCAzNDZRNzMgMzIyIDgzIDMwNlE5NiAyODcgMTExIDMxMEwxNDUgMzU2TDEzNSAyNDJRMTM2IDIyNSAxNDkgMjI3UTE2NCAyMzAgMTY2IDI0NkwxNzkgMzIyTDE4NSAyMTRRMTg3IDE5OCAyMDEgMjAxUTIxNSAyMDQgMjE2IDIxOEwyMTQgMzEzTDIzMiAyMzZRMjM3IDIyMSAyNTEgMjI2UTI2NiAyMzQgMjYwIDI1MEwyMzkgMzQ4TDI2NyAzMDdRMjc5IDI5NSAyODkgMzA1UTI5OCAzMTcgMjg3IDMzNEwyNDUgNDIyUTIyNSA0NDkgMTgxIDQyMFoiIGZpbGw9InVybCgjZmFjZSkiIHN0cm9rZT0iI2U3OWE2NyIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNjcgMzg2TDEyNiAzODJRMTA5IDM4MyAxMDggNDA0UTExNSA0MzQgMTY2IDQ1M0wxOTMgNDQ1WiIgZmlsbD0iIzEyOGJkZiIgc3Ryb2tlPSIjMGI2ZGI4IiBzdHJva2Utd2lkdGg9IjUiLz4KPCEtLSBsZWdzIC0tPgo8cGF0aCBkPSJNMjA5IDUyN0wyMDQgNjA5UTIyMCA2MzIgMjUzIDYxOUwyNzYgNTQ1WiIgZmlsbD0idXJsKCNwYW50cykiIHN0cm9rZT0iIzM0NDM1ZiIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0yODMgNTI5TDMwNCA2MTlRMzM3IDYzNCAzNTAgNjA4TDMyOSA1MTFaIiBmaWxsPSJ1cmwoI3BhbnRzKSIgc3Ryb2tlPSIjMzQ0MzVmIiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTIwNCA2MDNRMTg4IDYyMiAxODggNjM1UTE5NCA2NTAgMjQwIDY0NkwyNjQgNjM5TDI1NiA2MTFaIiBmaWxsPSIjMTkzOTVkIi8+CjxwYXRoIGQ9Ik0zMDYgNjEyTDMwMCA2MzhRMzE5IDY1MiAzNjMgNjQ2UTM4MSA2MzkgMzcwIDYyMkwzNDkgNjA0WiIgZmlsbD0iIzE5Mzk1ZCIvPgo8IS0tIGJvZHkgLS0+CjxwYXRoIGQ9Ik0xOTMgMzc1UTIyMSAzNTEgMjU0IDM1MEwzMjUgMzU0UTM2OCAzNjYgMzc5IDQyM0wzNzAgNTQwUTI3OSA1NzEgMTkwIDUzNkwxNzggNDM3UTE3OSA0MDEgMTkzIDM3NVoiIGZpbGw9InVybCgjc2hpcnQpIiBzdHJva2U9IiMwYjc5YmUiIHN0cm9rZS13aWR0aD0iNiIvPgo8IS0tIG90aGVyIGFybSAtLT4KPHBhdGggZD0iTTM1MSAzOTFRMzk1IDM5NyA0MTEgNDM3TDQyNSA0ODVRNDE3IDUwOSAzOTMgNTA5UTM3OCA1MDUgMzc2IDQ4MkwzNTQgNDQ3WiIgZmlsbD0iIzBmODRkMSIgc3Ryb2tlPSIjMGI3MGI1IiBzdHJva2Utd2lkdGg9IjYiLz4KPGVsbGlwc2UgY3g9IjQxNyIgY3k9IjUwNyIgcng9IjI4IiByeT0iMzMiIGZpbGw9InVybCgjZmFjZSkiIHN0cm9rZT0iI2U4OWU2NyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjwhLS0gb3JhbmdlIHN1c3BlbmRlcnMgLS0+CjxwYXRoIGQ9Ik0yMTUgMzcxTDIzMSA1NDEiIHN0cm9rZT0iI2VkNWExMiIgc3Ryb2tlLXdpZHRoPSIyNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0yMTcgMzY5TDIzMiA1NDAiIHN0cm9rZT0iI2ZmYWQyYiIgc3Ryb2tlLXdpZHRoPSIxNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0zMzAgMzY2TDMzNyA1NDMiIHN0cm9rZT0iI2VkNWExMiIgc3Ryb2tlLXdpZHRoPSIyNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0zMzEgMzY4TDMzNyA1MzkiIHN0cm9rZT0iI2ZmYWQyYiIgc3Ryb2tlLXdpZHRoPSIxNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwhLS0gYnV0dG9ucyAtLT4KPGcgZmlsbD0id2hpdGUiPjxjaXJjbGUgY3g9IjI3OCIgY3k9IjQzOSIgcj0iNiIvPjxjaXJjbGUgY3g9IjI4MiIgY3k9IjQ3NSIgcj0iNiIvPjxjaXJjbGUgY3g9IjI4NSIgY3k9IjUwOSIgcj0iNiIvPjwvZz4KPCEtLSBuZWNrIC0tPgo8cGF0aCBkPSJNMjUwIDMzOEwyNTEgMzc3UTI4MCAzOTkgMzA4IDM3NkwzMDYgMzMzWiIgZmlsbD0iI2Y4Yjg3ZiIgc3Ryb2tlPSIjZGY5MjYwIiBzdHJva2Utd2lkdGg9IjUiLz4KPCEtLSBoZWFkIGVhcnMgLS0+CjxlbGxpcHNlIGN4PSIxOTciIGN5PSIyNTkiIHJ4PSIyNCIgcnk9IjM1IiBmaWxsPSIjZjliYjgzIiBzdHJva2U9IiNlODliNjkiIHN0cm9rZS13aWR0aD0iNSIvPgo8ZWxsaXBzZSBjeD0iMzQ0IiBjeT0iMjYwIiByeD0iMjQiIHJ5PSIzNSIgZmlsbD0iI2Y5YmI4MyIgc3Ryb2tlPSIjZTg5YjY5IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTIwMyAyMTFRMTk1IDE2MyAyMzUgMTQyUTI3NSAxMjMgMzIzIDE1OVEzNTIgMTg3IDM0NyAyNTZRMzQ2IDMzMiAyOTIgMzU3UTI1OSAzNjkgMjMxIDM0MFExOTYgMzE2IDIwMyAyMTFaIiBmaWxsPSJ1cmwoI2ZhY2UpIiBzdHJva2U9IiNlNDlhNjYiIHN0cm9rZS13aWR0aD0iNiIvPgo8IS0tIGNhcCBicmltIGhhaXIgLS0+CjxwYXRoIGQ9Ik0yMDYgMTk1UTIxMiAxMzMgMjY4IDEzMFEzMjAgMTMzIDM0MyAxOTJMMzQ2IDIyMlEyOTAgMjAxIDIyMCAyMjNaIiBmaWxsPSIjMjY1ZGMzIi8+CjxwYXRoIGQ9Ik0yMTkgMTk1UTIzMyAxMzUgMjgyIDEzMVEzMjggMTQyIDMzOSAxOTdRMjg1IDE4OCAyMTkgMjA1WiIgZmlsbD0idXJsKCNjYXApIi8+CjxwYXRoIGQ9Ik0xOTcgMjEzUTI3MyAxODEgMzUzIDIwMVEzNjEgMjExIDM0NyAyMjFRMjY0IDIwNSAyMDQgMjMxUTE4NiAyMzEgMTk3IDIxM1oiIGZpbGw9IiMxNTg3ZWIiIHN0cm9rZT0iIzBhNmFiYyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0yMjcgMjI4UTIyMyAyMTYgMjM2IDIxNk0zMDYgMjE2UTMyMCAyMTMgMzIzIDIyNCIgc3Ryb2tlPSIjNjkzZDMyIiBzdHJva2Utd2lkdGg9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8IS0tIGV5ZXMgLS0+CjxlbGxpcHNlIGN4PSIyNDYiIGN5PSIyNTkiIHJ4PSIxNyIgcnk9IjIxIiBmaWxsPSJ3aGl0ZSIvPgo8ZWxsaXBzZSBjeD0iMzEwIiBjeT0iMjU1IiByeD0iMTciIHJ5PSIyMSIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iMjQ5IiBjeT0iMjYzIiByPSI5IiBmaWxsPSIjNGQzMjFkIi8+PGNpcmNsZSBjeD0iMzEwIiBjeT0iMjU4IiByPSI5IiBmaWxsPSIjNGQzMjFkIi8+CjxjaXJjbGUgY3g9IjI1MSIgY3k9IjI1OSIgcj0iMy41IiBmaWxsPSJ3aGl0ZSIvPjxjaXJjbGUgY3g9IjMxMiIgY3k9IjI1NSIgcj0iMy41IiBmaWxsPSJ3aGl0ZSIvPgo8IS0tIGdsYXNzZXMgb3JhbmdlIC0tPgo8cmVjdCB4PSIyMTciIHk9IjIzMSIgcng9IjE2IiByeT0iMTYiIHdpZHRoPSI1NiIgaGVpZ2h0PSI1MyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY3MTE4IiBzdHJva2Utd2lkdGg9IjEyIi8+CjxyZWN0IHg9IjI4MyIgeT0iMjI4IiByeD0iMTYiIHJ5PSIxNiIgd2lkdGg9IjU3IiBoZWlnaHQ9IjU0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZjcxMTgiIHN0cm9rZS13aWR0aD0iMTIiLz4KPHBhdGggZD0iTTI3MiAyNDJRMjgwIDIzNCAyODkgMjQyTTIxNSAyNDdMMTk5IDIzN00zNDEgMjQ0TDM1MyAyMzYiIHN0cm9rZT0iI2ZmNzExOCIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjwhLS0gbm9zZSBhbmQgc21pbGUgLS0+CjxwYXRoIGQ9Ik0yNzcgMjcxUTI2OCAyOTAgMjc5IDI5MiIgc3Ryb2tlPSIjZGE4OTYzIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNMjQ2IDMwMVEyNzYgMzM0IDMxMyAyOTZRMzA3IDMzOSAyODAgMzQwUTI1NSAzNDAgMjQ2IDMwMVoiIGZpbGw9IiM3NDJkMmQiLz4KPHBhdGggZD0iTTI1NSAzMDhRMjgwIDMxNyAzMDUgMzA2UTI5NCAzMjYgMjc3IDMyNlEyNjAgMzI0IDI1NSAzMDhaIiBmaWxsPSIjZmZmNWU1Ii8+CjxwYXRoIGQ9Ik0yNjggMzM1UTI4MSAzMjYgMjk1IDMzNiIgc3Ryb2tlPSIjZTk3OTdhIiBzdHJva2Utd2lkdGg9IjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8Y2lyY2xlIGN4PSIyMjAiIGN5PSIyOTMiIHI9IjgiIGZpbGw9IiNlZjhiNjciIG9wYWNpdHk9Ii4zNCIvPjxjaXJjbGUgY3g9IjMzMSIgY3k9IjI4NyIgcj0iOCIgZmlsbD0iI2VmOGI2NyIgb3BhY2l0eT0iLjM0Ii8+CjwhLS0gYm93IHRpZSAtLT4KPHBhdGggZD0iTTI3OSAzODVMMjQ1IDM3MFEyMzcgMzY4IDIzNyAzODFMMjQyIDQxM1EyNDUgNDIxIDI1NSA0MTZMMjgyIDQwMVoiIGZpbGw9IiNmZjhhMTIiIHN0cm9rZT0iI2RjNWExMSIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0yODIgMzg1TDMxNiAzNzNRMzI1IDM2OCAzMjcgMzgwTDMyNCA0MTNRMzIxIDQyMiAzMTEgNDE2TDI3OSA0MDFaIiBmaWxsPSIjZmY4YTEyIiBzdHJva2U9IiNkYzVhMTEiIHN0cm9rZS13aWR0aD0iNSIvPgo8Y2lyY2xlIGN4PSIyODIiIGN5PSIzOTMiIHI9IjEyIiBmaWxsPSIjZmZiMzJjIiBzdHJva2U9IiNkYzVhMTEiIHN0cm9rZS13aWR0aD0iNCIvPgo8L2c+CjxwYXRoIGQ9Ik00MDggMTkwbDExLTIxIDExIDIxIDIyIDExLTIyIDEwLTExIDIzLTExLTIzLTIyLTEwWiIgZmlsbD0iI2ZmZDkyZSIvPgo8cGF0aCBkPSJNMTAwIDE2NWw3LTEzIDcgMTMgMTMgNy0xMyA3LTcgMTMtNy0xMy0xMy03WiIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjkiLz4KPGNpcmNsZSBjeD0iNDMwIiBjeT0iMzEwIiByPSIxMCIgZmlsbD0iI2ZmOGIxNyIvPjxjaXJjbGUgY3g9IjEzNSIgY3k9IjUxMyIgcj0iNyIgZmlsbD0iI2ZkZGQzYyIvPgo8L3N2Zz4K'" alt="Animador de caricatura con lentes naranjas, saludando alegremente"></div>
+            <div class="number-sticker" aria-label="Cumple tres años"><span id="edad-globo">3</span><small>¡AÑOS!</small></div>
+            <div class="little-sparkle" aria-hidden="true">✴</div>
+          </div>
+        </div>
+        <div class="hero-bottom" aria-hidden="true">
+          <div class="hill hill-one"></div>
+          <div class="hill hill-two"></div>
+          <img src="assets/camion.svg" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MzAgMjgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkNhbWnDs24gdm9scXVldGUgYW1hcmlsbG8gZGUganVndWV0ZSI+CjxlbGxpcHNlIGN4PSIyNjAiIGN5PSIyNDUiIHJ4PSIyNDAiIHJ5PSIxNiIgZmlsbD0iIzE0NWQ5ZCIgb3BhY2l0eT0iLjE3Ii8+CjxwYXRoIGQ9Ik0zNyA2NUwyOTUgNjhMMjc4IDE3OUw3NSAxODVaIiBmaWxsPSIjZmZjMjJjIiBzdHJva2U9IiNlYzg1MTAiIHN0cm9rZS13aWR0aD0iMTEiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTQzIDgyTDI4NSA4NSIgc3Ryb2tlPSIjZmZmMzhlIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTgzIDE4MUgzMTBMMzQwIDEyOEg0MDdMNDY2IDE5M0w0NjMgMjIySDcwWiIgZmlsbD0iI2ZjYTMxYSIgc3Ryb2tlPSIjZDU3MzExIiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTM0NiAxNDRINDAxTDQ0NCAxOTNIMzI4WiIgZmlsbD0iIzM3YmZmYSIgc3Ryb2tlPSIjZTVmN2ZkIiBzdHJva2Utd2lkdGg9IjgiLz4KPHBhdGggZD0iTTM5MSAxNDFMMzk2IDE5MyIgc3Ryb2tlPSIjZjI5YjIwIiBzdHJva2Utd2lkdGg9IjkiLz4KPHJlY3QgeD0iNDU4IiB5PSIyMDAiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgcng9IjUiIGZpbGw9IiNmZmY5YTUiLz4KPGc+PGNpcmNsZSBjeD0iMTQ5IiBjeT0iMjIzIiByPSI0MCIgZmlsbD0iIzM0M2U1OCIvPjxjaXJjbGUgY3g9IjE0OSIgY3k9IjIyMyIgcj0iMjEiIGZpbGw9IiNmZmNmMjgiIHN0cm9rZT0iI2VlZTJhNSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PGNpcmNsZSBjeD0iMzk2IiBjeT0iMjIzIiByPSI0MCIgZmlsbD0iIzM0M2U1OCIvPjxjaXJjbGUgY3g9IjM5NiIgY3k9IjIyMyIgcj0iMjEiIGZpbGw9IiNmZmNmMjgiIHN0cm9rZT0iI2VlZTJhNSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PC9nPgo8L3N2Zz4K'" alt="" class="truck">
+          <div class="traffic-cone"><span></span></div>
+        </div>
+      </section>
+
+      <section class="adventure-section" id="detalles" aria-labelledby="detalles-titulo">
+        <div class="wrap">
+          <div class="section-heading">
+            <span class="section-kicker">✳ ¡NO FALTES! ✳</span>
+            <h2 id="detalles-titulo">¡Acompáñanos en esta <span>gran aventura!</span></h2>
+            <p>Nos esperan risas, juegos, baile y muchísima diversión.</p>
+          </div>
+
+          <div class="details-grid">
+            <article class="date-card">
+              <div class="card-topline"><span>EL GRAN DÍA</span><span aria-hidden="true">✦ ✦ ✦</span></div>
+              <span class="date-kicker">¡APUNTA LA FECHA!</span>
+              <div id="dia-grande" class="giant-date">18</div>
+              <p class="date-month" id="mes-grande">OCTUBRE <span id="anio-grande">2026</span></p>
+              <div class="date-footer"><span aria-hidden="true">🎉</span><span id="cuenta-regresiva">¡Ya casi comienza la fiesta!</span></div>
+            </article>
+
+            <article class="details-card">
+              <span class="card-stamp" aria-hidden="true">⭐</span>
+              <h3>¡Aquí empieza la diversión!</h3>
+              <div class="detail-line">
+                <div class="detail-icon icon-clock" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></svg>
+                </div>
+                <div class="detail-text"><span>¿A QUÉ HORA?</span><strong id="hora-evento">Por confirmar</strong></div>
+              </div>
+              <div class="detail-line">
+                <div class="detail-icon icon-pin" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                </div>
+                <div class="detail-text"><span>¿DÓNDE NOS VEMOS?</span><strong id="lugar-evento">Por confirmar</strong></div>
+              </div>
+              <div class="map-box">
+                <span class="map-line" aria-hidden="true"></span>
+                <div class="map-marker" aria-hidden="true">📍</div>
+                <div class="map-description"><strong>¡La aventura nos espera!</strong><span id="mapa-subtitulo">Muy pronto compartiremos la ubicación.</span></div>
+                <a id="boton-mapa" class="button button-blue map-button" href="#" aria-disabled="true">UBICACIÓN PRÓXIMAMENTE <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="vehicle-road" aria-hidden="true"><div class="road-dashes"></div><img src="assets/excavadora.svg" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjAgMzUwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkV4Y2F2YWRvcmEgYW1hcmlsbGEgZGUganVndWV0ZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ieWVsbG93IiB4MT0iMCIgeDI9IjEiIHkxPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmZWM1MCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmOWExOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8ZWxsaXBzZSBjeD0iMjYzIiBjeT0iMzEzIiByeD0iMjIzIiByeT0iMTciIGZpbGw9IiMxNDYwOTkiIG9wYWNpdHk9Ii4xNSIvPgo8IS0tIGFybSAtLT4KPHBhdGggZD0iTTMxNyAxNjBMMzkwIDczTDQ0MyA5N0wzNzggMTk0WiIgZmlsbD0idXJsKCN5ZWxsb3cpIiBzdHJva2U9IiNjZTc2MTAiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTQyMyA4NEw0ODggMTI0TDQ2MiAxODBMNDM0IDE2NUw0NDQgMTQyTDM5OSAxMTdaIiBmaWxsPSIjZmZiODI1IiBzdHJva2U9IiNjZjdiMTMiIHN0cm9rZS13aWR0aD0iMTEiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTQ2MyAxNTlMNTE1IDE3MEw1MDcgMjE2UTQ3NSAyMzYgNDQ0IDIxMUw0MzAgMTgzWiIgZmlsbD0iIzM5M2Y1NSIgc3Ryb2tlPSIjMjYzMzRkIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxjaXJjbGUgY3g9IjM5NCIgY3k9Ijg5IiByPSIxNSIgZmlsbD0iI2Y5ZjRkYyIgc3Ryb2tlPSIjZGM4OTE2IiBzdHJva2Utd2lkdGg9IjciLz48Y2lyY2xlIGN4PSI0NDYiIGN5PSIxMzciIHI9IjE0IiBmaWxsPSIjZjlmNGRjIiBzdHJva2U9IiNkYzg5MTYiIHN0cm9rZS13aWR0aD0iNyIvPgo8cGF0aCBkPSJNMzE0IDE3NUwzNjYgMTE4IiBzdHJva2U9IiM5Y2NiZDYiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8IS0tIHRyYWNrcyAtLT4KPHBhdGggZD0iTTEyMiAyNDlIMzU3UTM5MCAyNDkgMzkxIDI4M1EzOTEgMzIwIDM1MiAzMjBIMTE4UTgxIDMxOCA4MSAyODdRODEgMjUyIDEyMiAyNDlaIiBmaWxsPSIjMzQzYzUzIiBzdHJva2U9IiMyNzMyNGEiIHN0cm9rZS13aWR0aD0iMTAiLz4KPHJlY3QgeD0iMTEyIiB5PSIyNjYiIHdpZHRoPSIyNDkiIGhlaWdodD0iNDAiIHJ4PSIyMCIgZmlsbD0iIzU5NjQ3YiIvPgo8ZyBmaWxsPSIjMjcyZjQzIiBzdHJva2U9IiM5Mjk5YTQiIHN0cm9rZS13aWR0aD0iNyI+PGNpcmNsZSBjeD0iMTQ0IiBjeT0iMjg2IiByPSIxNyIvPjxjaXJjbGUgY3g9IjE5NSIgY3k9IjI4NiIgcj0iMTciLz48Y2lyY2xlIGN4PSIyNDYiIGN5PSIyODYiIHI9IjE3Ii8+PGNpcmNsZSBjeD0iMjk4IiBjeT0iMjg2IiByPSIxNyIvPjxjaXJjbGUgY3g9IjM0NSIgY3k9IjI4NiIgcj0iMTYiLz48L2c+CjwhLS0gY2hhc3NpcyAtLT4KPHBhdGggZD0iTTk1IDIyMkgzNzBRMzg3IDIyMiAzODEgMjYwTDkyIDI2MFE3NyAyNDUgOTUgMjIyWiIgZmlsbD0iI2Y4OWExNyIgc3Ryb2tlPSIjYzY3OTE2IiBzdHJva2Utd2lkdGg9IjkiLz4KPHBhdGggZD0iTTE2NiAxMDVIMjYxUTI3NiAxMDYgMjg3IDEyNkwzMTIgMjIySDEzNEwxMzkgMTQwUTE0MyAxMDYgMTY2IDEwNVoiIGZpbGw9InVybCgjeWVsbG93KSIgc3Ryb2tlPSIjY2M3ZDE2IiBzdHJva2Utd2lkdGg9IjEwIi8+CjxwYXRoIGQ9Ik0xNjggMTI0SDI1M0wyNzggMjEySDE1NEwxNTggMTQ2UTE1OSAxMjcgMTY4IDEyNFoiIGZpbGw9IiM2N2NlZmEiIHN0cm9rZT0iI2Y3ZjhkOCIgc3Ryb2tlLXdpZHRoPSI2Ii8+CjxwYXRoIGQ9Ik0yMTEgMTI1TDIxMiAyMTQiIHN0cm9rZT0iI2YxYWIxZiIgc3Ryb2tlLXdpZHRoPSIxMCIvPgo8cGF0aCBkPSJNMjc0IDE3M0gzNjRRMzc2IDE3NSAzNzkgMTk4TDM4MSAyMjJIMjkzWiIgZmlsbD0iI2ZmYzUyZCIgc3Ryb2tlPSIjYzY3YzE1IiBzdHJva2Utd2lkdGg9IjkiLz4KPHJlY3QgeD0iMzExIiB5PSIxODYiIHdpZHRoPSIzNSIgaGVpZ2h0PSIxMyIgcng9IjUiIGZpbGw9IiNmYmVhYzQiLz4KPC9zdmc+Cg=='" alt=""></div>
+        </div>
+      </section>
+
+      <section class="end-section" id="celebrar" aria-labelledby="final-titulo">
+        <div class="end-confetti" aria-hidden="true">✳</div>
+        <div class="end-card wrap">
+          <span class="end-stars" aria-hidden="true">★ &nbsp; ✨ &nbsp; ★</span>
+          <h2 id="final-titulo">¡La fiesta será mucho mejor <span>contigo!</span></h2>
+          <p>Ven con muchas ganas de jugar, reír y pasarla increíble. ¡Te esperamos!</p>
+          <div class="end-buttons">
+            <button class="button button-yellow" type="button" id="boton-confeti">🎊 ¡LANZA CONFETI!</button>
+            <button class="button button-outline" type="button" id="boton-copiar">✉ COPIAR INVITACIÓN</button>
+            <a class="button button-white hidden" id="boton-whatsapp" href="#" target="_blank" rel="noopener noreferrer">✓ CONFIRMAR POR WHATSAPP</a>
+          </div>
+          <div class="end-message"><span>Con cariño, la familia de <strong id="nombre-final">Adriel</strong>.</span><span aria-hidden="true">♡</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrap"><span>HECHO CON MUCHO AMOR PARA UN CUMPLE MUY ESPECIAL <span aria-hidden="true">♥</span></span><span>¡NOS VEMOS PRONTO!</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- Respaldo JavaScript: se activa solo si no se cargo script.js. -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.__adrielScriptInitialized) return;
+/* Funcionalidades de la invitación: personalización, mapa, WhatsApp, copiar y confeti. */
+(() => {
+  'use strict';
+  const defaults = {
+    nombre: 'Adriel', edad: 3, dia: 18, mes: 'octubre', anio: 2026,
+    hora: 'Por confirmar', lugar: 'Por confirmar', enlaceGoogleMaps: '',
+    whatsappConfirmacion: '', mensaje: '¡Acompáñanos a celebrar una aventura llena de juegos y diversión!'
+  };
+  const cfg = { ...defaults, ...(window.INVITACION || {}) };
+  const $ = id => document.getElementById(id);
+  const set = (id, value) => { const el = $(id); if (el) el.textContent = String(value); };
+  const caps = text => String(text).toLocaleUpperCase('es');
+  const mesLabel = String(cfg.mes || defaults.mes).trim();
+
+  document.title = `¡${cfg.nombre} cumple ${cfg.edad}! | Invitación`;
+  set('nombre-hero', cfg.nombre);
+  set('nombre-final', cfg.nombre);
+  set('edad-hero', cfg.edad);
+  set('edad-globo', cfg.edad);
+  set('dia-hero', cfg.dia);
+  set('dia-grande', cfg.dia);
+  set('mes-hero', caps(mesLabel));
+  set('mes-grande', caps(mesLabel) + ' ');
+  // Anidamos el año de forma segura dentro del mes, cuyo contenido cambia.
+  const year = document.createElement('span');
+  year.id = 'anio-grande';
+  year.textContent = String(cfg.anio);
+  $('mes-grande').appendChild(year);
+  set('hora-evento', cfg.hora || defaults.hora);
+  set('lugar-evento', cfg.lugar || defaults.lugar);
+
+  // Permite enlaces oficiales de Google Maps y direcciones https seguras.
+  function urlSegura(value) {
+    try {
+      const u = new URL(String(value).trim());
+      if (u.protocol !== 'https:') return '';
+      const host = u.hostname.toLowerCase();
+      if (host === 'maps.app.goo.gl' || host === 'goo.gl' || host === 'maps.google.com' ||
+          host === 'www.google.com' || host === 'google.com' || host.endsWith('.google.com')) {
+        return u.href;
+      }
+    } catch (_) { /* vacío o incorrecto */ }
+    return '';
+  }
+  const mapsUrl = urlSegura(cfg.enlaceGoogleMaps);
+  const mapa = $('boton-mapa');
+  if (mapsUrl) {
+    mapa.href = mapsUrl;
+    mapa.target = '_blank';
+    mapa.rel = 'noopener noreferrer';
+    mapa.removeAttribute('data-pending');
+    mapa.removeAttribute('aria-disabled');
+    mapa.innerHTML = '🗺️ ABRIR EN GOOGLE MAPS <span aria-hidden="true">↗</span>';
+    set('mapa-subtitulo', '¡Toca el botón para ver la ruta en Google Maps!');
+  } else {
+    mapa.addEventListener('click', (event) => {
+      event.preventDefault();
+      toast('📍 La ubicación se compartirá muy pronto.');
+    });
+  }
+
+  const digits = String(cfg.whatsappConfirmacion || '').replace(/\D/g, '');
+  if (digits.length >= 9 && digits.length <= 15) {
+    const texto = `¡Hola! Quiero confirmar mi asistencia al cumpleaños de ${cfg.nombre} 🎉`;
+    const whatsapp = $('boton-whatsapp');
+    whatsapp.href = `https://wa.me/${digits}?text=${encodeURIComponent(texto)}`;
+    whatsapp.classList.remove('hidden');
+  }
+
+  // La hora aún no está fijada: cuenta los días hasta las 00:00 de la fecha elegida.
+  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const monthNumber = meses.indexOf(mesLabel.toLocaleLowerCase('es'));
+  function actualizarCuenta() {
+    if (monthNumber === -1) return;
+    const now = new Date();
+    const hoy = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const fiesta = new Date(Number(cfg.anio), monthNumber, Number(cfg.dia));
+    if (Number.isNaN(fiesta.getTime())) return;
+    const dias = Math.round((fiesta.getTime() - hoy.getTime()) / 86400000);
+    set('cuenta-regresiva', dias > 1 ? `¡Faltan ${dias} días para la fiesta!`
+      : dias === 1 ? '¡Mañana es la gran fiesta!'
+      : dias === 0 ? '¡HOY ES EL GRAN DÍA!'
+      : '¡Gracias por celebrar con nosotros!');
+  }
+  actualizarCuenta();
+
+  let toastTimeout;
+  function toast(message) {
+    const el = $('toast');
+    el.textContent = message;
+    el.classList.add('visible');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => el.classList.remove('visible'), 3600);
+  }
+
+  function textoInvitacion() {
+    const partes = [
+      `🎉 ¡${cfg.nombre} cumple ${cfg.edad} años! 🎉`,
+      '',
+      cfg.mensaje,
+      `📅 ${cfg.dia} de ${mesLabel} de ${cfg.anio}`,
+      `🕒 Hora: ${cfg.hora || 'Por confirmar'}`,
+      `📍 Lugar: ${cfg.lugar || 'Por confirmar'}`
+    ];
+    if (mapsUrl) partes.push(`🗺️ Google Maps: ${mapsUrl}`);
+    partes.push('', '¡Te esperamos! 🧡💙');
+    return partes.join('\n');
+  }
+  $('boton-copiar').addEventListener('click', async () => {
+    const texto = textoInvitacion();
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(texto);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = texto;
+        ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;left:-9999px;top:0;';
+        document.body.appendChild(ta);
+        ta.select();
+        const copied = document.execCommand('copy');
+        ta.remove();
+        if (!copied) throw new Error('No se puede copiar');
+      }
+      toast('✅ ¡Invitación copiada! Lista para enviar.');
+    } catch (_) {
+      toast('No se pudo copiar automáticamente. Selecciona el texto para compartirlo.');
+      window.prompt('Copia este texto:', texto);
+    }
+  });
+
+  // Efecto confeti sin librerías ni red: funciona incluso sin internet.
+  const canvas = $('confeti');
+  const ctx = canvas.getContext('2d');
+  let pieces = [], animation = 0;
+  const colors = ['#ff7517', '#ffcf27', '#ffffff', '#0798ed', '#8ee3fa', '#fa3b69'];
+  function fit() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function pintar() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    pieces = pieces.filter(p => p.life > 0 && p.y < window.innerHeight + 50);
+    for (const p of pieces) {
+      p.x += p.vx; p.y += p.vy; p.vy += .15; p.vx *= .997;
+      p.angle += p.spin; p.life--;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.angle);
+      ctx.fillStyle = p.color; ctx.globalAlpha = Math.min(1, p.life / 24);
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+    if (pieces.length) animation = window.requestAnimationFrame(pintar);
+    else animation = 0;
+  }
+  function lanzarConfeti() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      toast('🎉 ¡Feliz cumpleaños, Adriel!');
+      return;
+    }
+    fit();
+    const x = window.innerWidth / 2, y = Math.min(window.innerHeight * .5, 390);
+    for (let i = 0; i < 170; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const s = 3 + Math.random() * 10;
+      pieces.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s - 4,
+        angle: Math.random() * 6.28, spin: (Math.random() - .5) * .22,
+        life: 100 + Math.random() * 75, w: 6 + Math.random() * 7,
+        h: 5 + Math.random() * 10, color: colors[i % colors.length] });
+    }
+    if (!animation) pintar();
+  }
+  $('boton-confeti').addEventListener('click', lanzarConfeti);
+  window.addEventListener('resize', () => { if (pieces.length) fit(); }, { passive: true });
+})();
+
+      window.__adrielScriptInitialized = true;
+    });
+  </script>
+  <script>
+
+/* Música de bienvenida: prueba autoplay, con respaldo mediante un toque.
+   Los navegadores pueden bloquear el sonido sin interacción previa. */
+(() => {
+  'use strict';
+  if (window.__adrielMusicInitialized) return;
+  window.__adrielMusicInitialized = true;
+  const audio = document.getElementById('musica-adriel');
+  const gate = document.getElementById('musica-bienvenida');
+  const start = document.getElementById('musica-comenzar');
+  const control = document.getElementById('musica-control');
+  const label = document.getElementById('musica-control-text');
+  if (!audio || !gate || !start || !control || !label) return;
+  audio.volume = 0.65;
+
+  function update() {
+    const playing = !audio.paused;
+    control.classList.toggle('is-playing', playing);
+    control.setAttribute('aria-pressed', String(playing));
+    control.setAttribute('aria-label', playing ? 'Pausar música' : 'Reproducir música');
+    label.textContent = playing ? 'PAUSAR MÚSICA' : 'ACTIVAR MÚSICA';
+    control.querySelector('.music-icon').textContent = playing ? '🔊' : '🎵';
+  }
+  function closeGate() {
+    gate.hidden = true;
+    document.body.style.overflow = '';
+  }
+  function showGate() {
+    if (!audio.paused) return;
+    gate.hidden = false;
+    document.body.style.overflow = 'hidden';
+    start.focus({preventScroll:true});
+  }
+  async function playFromTap() {
+    closeGate();
+    try {
+      await audio.play();
+      update();
+    } catch (err) {
+      closeGate();
+      update();
+      // Si el dispositivo o archivo falla, la invitación sigue accesible.
+      console.warn('No se pudo iniciar la música:', err);
+    }
+  }
+  start.addEventListener('click', playFromTap);
+  control.addEventListener('click', async () => {
+    if (!audio.paused) {
+      audio.pause();
+    } else {
+      await playFromTap();
+    }
+    update();
+  });
+  audio.addEventListener('play', update);
+  audio.addEventListener('pause', update);
+  audio.addEventListener('error', () => {
+    closeGate();
+    update();
+    label.textContent = 'MÚSICA NO DISPONIBLE';
+    control.disabled = true;
+  });
+
+  update();
+  const attempt = audio.play();
+  if (attempt && typeof attempt.then === 'function') {
+    attempt.then(() => {closeGate(); update();})
+      .catch(() => showGate());
+  } else {
+    showGate();
+  }
+})();
+
+  </script>
+</body>
+</html>
